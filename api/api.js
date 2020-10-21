@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://admin:syed@123@cluster0-f8vmc.mongodb.net/RestData?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://syed_123:syed@123@cluster0.aimnl.mongodb.net/RestData?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
@@ -61,7 +61,7 @@ app.get('/restaurant',(req,res) => {
 app.get('/restaurantDetails/:id',(req,res) => {
     console.log(req.params.id)
     var query = {_id:req.params.id}
-    db.collection('restaurent').find(query).toArray((err,result) =>{
+    db.collection('restaurant').find(query).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
